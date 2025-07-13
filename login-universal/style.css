@@ -29,10 +29,10 @@ body {
 }
 
 .logo-img img {
-  width: 80px;
+  width: 130px;
   height: auto;
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 10px;
 }
 
 .login-box h2 {
