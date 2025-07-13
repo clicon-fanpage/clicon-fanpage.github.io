@@ -1,20 +1,79 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Propietario</title>
+  <meta charset="UTF-8">
+  <title>CLICON - Propietario</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Página: propietario</h1>
-    <nav>
-        <a href="/login">Login</a> |
-        <a href="/propietario">Propietario</a> |
-        <a href="/matriz">Matriz</a> |
-        <a href="/administracion">Administración</a> |
-        <a href="/gerente">Gerente</a> |
-        <a href="/supervisor">Supervisor</a> |
-        <a href="/vendedor">Vendedor</a> |
-        <a href="/fan-pague">Fanpage</a>
-    </nav>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="logo-img">
+        <img src="logo.png" alt="CLICON logo">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">Empresas</a></li>
+          <li><a href="#">Pagos</a></li>
+          <li class="active"><a href="#">Configuración</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header>
+        <h2>Empresas</h2>
+        <button class="add-btn">+ Agregar empresa</button>
+      </header>
+
+      <section class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Autos del Mar</td>
+              <td>info@autosdelmar.c</td>
+              <td>Activo</td>
+              <td>
+                <button class="deshabilitar">Deshabilitar</button>
+                <button class="eliminar">Eliminar</button>
+              </td>
+            </tr>
+            <tr>
+              <td>CityCar</td>
+              <td>contacto@citycar.co</td>
+              <td>Activo</td>
+              <td>
+                <button class="deshabilitar">Deshabilitar</button>
+                <button class="eliminar">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <h3>Nueva Empresa</h3>
+      <input type="text" id="empresa-nombre" placeholder="Nombre de la empresa" />
+      <input type="email" id="empresa-email" placeholder="Email de acceso" />
+      <div class="modal-actions">
+        <button class="save-btn">Guardar</button>
+        <button class="close-btn">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
