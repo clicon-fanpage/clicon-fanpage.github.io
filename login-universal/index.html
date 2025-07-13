@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CLICON - Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <div class="logo">CLICON</div>
+      <h2>Iniciar Sesión</h2>
+      <form id="login-form">
+        <input type="email" placeholder="Correo electrónico" />
+        <input type="password" placeholder="Contraseña" />
+        <select id="rol">
+          <option value="/matriz">Matriz</option>
+          <option value="/administracion">Administración</option>
+          <option value="/gerente">Gerente</option>
+          <option value="/supervisor">Supervisor</option>
+          <option value="/vendedor">Vendedor</option>
+        </select>
+        <button type="submit">Ingresar</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("login-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const rol = document.getElementById("rol").value;
+      window.location.href = rol;
+    });
+  </script>
+</body>
+</html>
