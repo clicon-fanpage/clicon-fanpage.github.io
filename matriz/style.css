@@ -1,66 +1,78 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #f6f9fc;
+}
+
+.container {
   display: flex;
   height: 100vh;
-  background-color: #f7fafd;
-  color: #222;
 }
 
 .sidebar {
-  width: 220px;
-  background-color: #fff;
-  padding-top: 20px;
+  width: 250px;
+  background-color: #ffffff;
   border-right: 1px solid #e0e0e0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
+  padding-top: 30px;
 }
 
-/* 🔵 Línea azul vertical */
-.sidebar::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 1px;
-  height: 100%;
-  background-color: #00bfff;
-}
-
-.logo {
-  max-width: 120px;
+.logo-img {
   margin-bottom: 30px;
 }
 
-.menu {
+.logo-img img {
+  width: 130px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.sidebar ul {
   list-style: none;
-  padding: 0;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.sidebar li {
   width: 100%;
 }
 
-.menu li {
-  text-align: left;
-  padding: 10px 20px;
-}
-
-.menu li a {
+.sidebar li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
   color: #333;
   text-decoration: none;
-  display: block;
-  border-radius: 4px;
-  transition: background-color 0.2s;
+  transition: background-color 0.3s;
 }
 
-.menu li.active a,
-.menu li a:hover {
-  background-color: #00bfff;
-  color: white;
-  font-weight: bold;
+.sidebar li.active a,
+.sidebar li a:hover {
+  background-color: #00c4ff;
+  color: #fff;
 }
 
 .main-content {
-  flex-grow: 1;
+  flex: 1;
   padding: 40px;
+}
+
+.main-content h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.main-content p {
+  font-size: 16px;
+  color: #333;
 }
