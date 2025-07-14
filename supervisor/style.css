@@ -22,6 +22,20 @@ body {
   flex-direction: column;
   align-items: center;
   padding-top: 30px;
+  position: relative;
+  box-shadow: 2px 0 8px rgba(0, 191, 255, 0.1); /* 🔵 sombra sutil */
+}
+
+/* 🔵 Línea azul vertical fina + glow */
+.sidebar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background-color: rgba(0, 191, 255, 0.3); /* 30% opacidad */
+  box-shadow: 0 0 6px #00bfff; /* brillo suave */
 }
 
 .logo-img {
@@ -52,13 +66,14 @@ body {
   padding: 12px 20px;
   color: #333;
   text-decoration: none;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, border-radius 0.3s;
 }
 
 .sidebar li.active a,
 .sidebar li a:hover {
   background-color: #00c4ff;
   color: #fff;
+  border-radius: 8px; /* ✅ redondeado al pasar el mouse o activo */
 }
 
 .main-content {
