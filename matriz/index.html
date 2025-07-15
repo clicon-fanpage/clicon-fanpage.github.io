@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Panel Matriz</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
@@ -13,29 +15,33 @@
       </div>
       <nav>
         <ul>
-          <li class="active"><a href="#">Inicio</a></li>
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Clientes</a></li>
-          <li><a href="#">Campañas</a></li>
-          <li><a href="#">Scoring</a></li>
-          <li><a href="#">Scoring - aprobados</a></li>
-          <li><a href="#">Scoring - desaprobados</a></li>
-          <li><a href="#">Scoring - anulados</a></li>
-          <li><a href="#">Usuarios</a></li>
-          <li><a href="#">----</a></li>
-          <li><a href="#">----</a></li>
-          <li><a href="#">----</a></li>
-          <li><a href="#">----</a></li>
-          <li><a href="#">----</a></li>
-          <li><a href="#">----</a></li>
+          <li class="active"><a href="#" onclick="cargarPagina('inicio.html')">Inicio</a></li>
+          <li><a href="#" onclick="cargarPagina('clientes.html')">Clientes</a></li>
+          <li><a href="#" onclick="cargarPagina('campanias.html')">Campañas</a></li>
+          <li><a href="#" onclick="cargarPagina('scoring.html')">Scoring</a></li>
+          <li><a href="#" onclick="cargarPagina('usuarios.html')">Usuarios</a></li>
           <li><a href="#">Salir</a></li>
         </ul>
       </nav>
     </aside>
-    <main class="main-content">
-      <h2>Inicio</h2>
-      <p>Bienvenido al sistema CliCon</p>
+    <main class="main-content" id="contenido">
+      <!-- Aquí se cargará el contenido dinámicamente -->
     </main>
   </div>
+
+  <script>
+    function cargarPagina(pagina) {
+      fetch(pagina)
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('contenido').innerHTML = data;
+        })
+        .catch(err => {
+          document.getElementById('contenido').innerHTML = '<p>Error al cargar la página.</p>';
+        });
+    }
+
+    window.onload = () => cargarPagina('inicio.html');
+  </script>
 </body>
 </html>
