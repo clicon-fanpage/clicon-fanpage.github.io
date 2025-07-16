@@ -5,6 +5,22 @@
   <title>Panel Matriz</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    .imagen-modulo {
+      max-width: 90%;
+      height: auto;
+      display: block;
+      margin: 40px auto;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .mensaje-creacion {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 20px;
+      color: #888;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -14,43 +30,43 @@
       </div>
       <nav>
         <ul>
-          <li class="active"><a href="#" onclick="cargarPagina('inicio.html')">Inicio</a></li>
-          <li><a href="#" onclick="cargarPagina('clientes.html')">Clientes</a></li>
-          <li><a href="#" onclick="cargarPagina('campanias.html')">Campañas</a></li>
-          <li><a href="#" onclick="cargarPagina('scoring.html')">Scoring</a></li>
-          <li><a href="#" onclick="cargarPagina('usuarios.html')">Usuarios</a></li>
+          <li><a href="#" onclick="cargarImagen('inicio')">Inicio</a></li>
+          <li><a href="#" onclick="cargarImagen('clientes')">Clientes</a></li>
+          <li><a href="#" onclick="cargarImagen('campanias')">Campañas</a></li>
+          <li><a href="#" onclick="cargarImagen('scoring')">Scoring</a></li>
+          <li><a href="#" onclick="cargarImagen('usuarios')">Usuarios</a></li>
           <li><a href="#">Salir</a></li>
         </ul>
       </nav>
     </aside>
 
     <main class="main-content" id="contenido">
-      <!-- Aquí se cargará el contenido dinámicamente -->
+      <!-- Aquí se cargará la imagen o mensaje -->
     </main>
   </div>
 
   <script>
-    function cargarPagina(pagina) {
-      fetch(pagina)
-        .then(res => res.text())
-        .then(data => {
-          document.getElementById('contenido').innerHTML = data;
+    function cargarImagen(nombre) {
+      const img = new Image();
+      img.src = `${nombre}.png`;
+      img.className = 'imagen-modulo';
 
-          // Si la página es inicio.html, espera que cargue el DOM y ejecuta el script de donuts
-          if (pagina === 'inicio.html') {
-            setTimeout(() => {
-              const script = document.createElement('script');
-              script.src = "inicio.js"; // Alternativa: o cargar dinámicamente la función que está dentro de inicio.html
-              document.body.appendChild(script);
-            }, 100);
-          }
-        })
-        .catch(err => {
-          document.getElementById('contenido').innerHTML = '<p>Error al cargar la página.</p>';
-        });
+      img.onload = () => {
+        document.getElementById('contenido').innerHTML = '';
+        document.getElementById('contenido').appendChild(img);
+      };
+
+      img.onerror = () => {
+        document.getElementById('contenido').innerHTML = `
+          <div class="mensaje-creacion">
+            En proceso de creación ⚙️👷‍♂️
+          </div>
+        `;
+      };
     }
 
-    window.onload = () => cargarPagina('inicio.html');
+    // Cargar por defecto "inicio"
+    window.onload = () => cargarImagen('inicio');
   </script>
 </body>
 </html>

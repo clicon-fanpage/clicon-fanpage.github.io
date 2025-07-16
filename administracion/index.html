@@ -2,8 +2,28 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Panel Matriz</title>
+  <title>Panel Administración</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    .imagen-modulo {
+      max-width: 90%;
+      height: auto;
+      display: block;
+      margin: 40px auto;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .mensaje-creacion {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 20px;
+      color: #888;
+    }
+    .main-content {
+      padding: 20px;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -13,28 +33,51 @@
       </div>
       <nav>
         <ul>
-          <li class="active"><a href="#">Inicio</a></li>
-          <li><a href="#">Clientes</a></li>
-          <li><a href="#">Bot-Whatsapp</a></li>
-          <li><a href="#">Subir archivos</a></li>
-          <li><a href="#">Scoring</a></li>
-          <li><a href="#">Moras</a></li>
-          <li><a href="#">Nomina</a></li>
-          <li><a href="#">Descargar-Cuota</a></li>
-          <li><a href="#"></a></li>
-          <li><a href="#">Sin uso 9</a></li>
-          <li><a href="#">Sin uso 10</a></li>
-          <li><a href="#">Sin uso 11</a></li>
-          <li><a href="#">Sin uso 12</a></li>
-          <li><a href="#">Sin uso 13</a></li>
+          <li><a href="#" onclick="cargarImagen('inicio')">Inicio</a></li>
+          <li><a href="#" onclick="cargarImagen('clientes')">Clientes</a></li>
+          <li><a href="#" onclick="cargarImagen('bot-whatsapp')">Bot-Whatsapp</a></li>
+          <li><a href="#" onclick="cargarImagen('subir-archivos')">Subir archivos</a></li>
+          <li><a href="#" onclick="cargarImagen('scoring')">Scoring</a></li>
+          <li><a href="#" onclick="cargarImagen('moras')">Moras</a></li>
+          <li><a href="#" onclick="cargarImagen('nomina')">Nomina</a></li>
+          <li><a href="#" onclick="cargarImagen('descargar-cuota')">Descargar-Cuota</a></li>
+          <li><a href="#" onclick="cargarImagen('sin-uso-9')">Sin uso 9</a></li>
+          <li><a href="#" onclick="cargarImagen('sin-uso-10')">Sin uso 10</a></li>
+          <li><a href="#" onclick="cargarImagen('sin-uso-11')">Sin uso 11</a></li>
+          <li><a href="#" onclick="cargarImagen('sin-uso-12')">Sin uso 12</a></li>
+          <li><a href="#" onclick="cargarImagen('sin-uso-13')">Sin uso 13</a></li>
           <li><a href="#">Salir</a></li>
         </ul>
       </nav>
     </aside>
-    <main class="main-content">
-      <h2>Inicio</h2>
-      <p>Bienvenido al sistema CliCon</p>
+
+    <main class="main-content" id="contenido">
+      <!-- Aquí se mostrará la imagen o el mensaje -->
     </main>
   </div>
+
+  <script>
+    function cargarImagen(nombre) {
+      const img = new Image();
+      img.src = `${nombre}.png`;
+      img.className = 'imagen-modulo';
+
+      img.onload = () => {
+        document.getElementById('contenido').innerHTML = '';
+        document.getElementById('contenido').appendChild(img);
+      };
+
+      img.onerror = () => {
+        document.getElementById('contenido').innerHTML = `
+          <div class="mensaje-creacion">
+            En proceso de creación ⚙️👷‍♂️
+          </div>
+        `;
+      };
+    }
+
+    // Cargar por defecto "inicio"
+    window.onload = () => cargarImagen('inicio');
+  </script>
 </body>
 </html>
