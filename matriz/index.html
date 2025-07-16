@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -24,6 +23,7 @@
         </ul>
       </nav>
     </aside>
+
     <main class="main-content" id="contenido">
       <!-- Aquí se cargará el contenido dinámicamente -->
     </main>
@@ -35,6 +35,15 @@
         .then(res => res.text())
         .then(data => {
           document.getElementById('contenido').innerHTML = data;
+
+          // Si la página es inicio.html, espera que cargue el DOM y ejecuta el script de donuts
+          if (pagina === 'inicio.html') {
+            setTimeout(() => {
+              const script = document.createElement('script');
+              script.src = "inicio.js"; // Alternativa: o cargar dinámicamente la función que está dentro de inicio.html
+              document.body.appendChild(script);
+            }, 100);
+          }
         })
         .catch(err => {
           document.getElementById('contenido').innerHTML = '<p>Error al cargar la página.</p>';
