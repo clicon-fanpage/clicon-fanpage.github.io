@@ -46,7 +46,7 @@
           <li><a href="#" onclick="cargarImagen('sin-uso-11')">Sin uso 11</a></li>
           <li><a href="#" onclick="cargarImagen('sin-uso-12')">Sin uso 12</a></li>
           <li><a href="#" onclick="cargarImagen('sin-uso-13')">Sin uso 13</a></li>
-          <li><a href="#">Salir</a></li>
+          <li><a href="#" id="btnSalir">Salir</a></li>
         </ul>
       </nav>
     </aside>
@@ -78,6 +78,11 @@
 
     // Cargar por defecto "inicio"
     window.onload = () => cargarImagen('inicio');
+
+    // Redirigir al login cuando se hace clic en "Salir"
+    document.getElementById("btnSalir").addEventListener("click", function() {
+      window.location.href = "https://crmclicon.github.io/crmclicon/login-universal/";
+    });
   </script>
 </body>
 </html>
