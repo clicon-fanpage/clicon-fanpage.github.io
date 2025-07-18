@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Panel Propietario</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
   <div class="container">
@@ -13,13 +14,22 @@
         <img src="logo.png" alt="CLICON logo" />
       </div>
       <nav>
-        <ul>
-          <li class="active" data-view="empresas"><a href="#">Empresas</a></li>
-          <li data-view="pagos"><a href="#">Pagos</a></li>
-          <li data-view="configuracion"><a href="#">Configuración</a></li>
+        <ul class="sidebar-menu">
+          <li class="active" data-view="empresas">
+            <a href="#"><i class="fas fa-building"></i> <span>Empresas</span></a>
+          </li>
+          <li data-view="agregar">
+            <a href="#"><i class="fas fa-plus-circle"></i> <span>Agregar empresa</span></a>
+          </li>
+          <li data-view="habilitar">
+            <a href="#"><i class="fas fa-toggle-on"></i> <span>Habilitar / Deshabilitar</span></a>
+          </li>
+          <li data-view="modificar">
+            <a href="#"><i class="fas fa-user-edit"></i> <span>Modificar</span></a>
+          </li>
         </ul>
       </nav>
-      <button class="logout-btn">Salir</button>
+      <button class="logout-btn"><i class="fas fa-sign-out-alt"></i> Salir</button>
     </aside>
 
     <main class="main-content">
@@ -41,13 +51,18 @@
         </table>
       </section>
 
-      <section id="pagos" class="view-section">
-        <h1>Pagos</h1>
-        <p>Control de pagos por empresa con tildes mensuales (a implementar).</p>
+      <section id="agregar" class="view-section">
+        <h1>Agregar empresa</h1>
+        <p>Usá el botón azul arriba o llená este módulo cuando esté implementado.</p>
       </section>
 
-      <section id="configuracion" class="view-section">
-        <h1>Configuración</h1>
+      <section id="habilitar" class="view-section">
+        <h1>Habilitar / Deshabilitar</h1>
+        <p>Acá vas a poder deshabilitar empresas que no pagan, o darlas de baja.</p>
+      </section>
+
+      <section id="modificar" class="view-section">
+        <h1>Modificar empresa</h1>
         <input type="text" placeholder="Nuevo nombre empresa" />
         <input type="email" placeholder="Nuevo email" />
         <input type="password" placeholder="Nueva contraseña" />
